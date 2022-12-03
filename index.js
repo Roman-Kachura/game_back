@@ -8,7 +8,7 @@ const aWss = WSServer.getWss();
 const api = require('./api');
 
 app.use(cors({
-    origin:'*'
+    origin:process.env.CLIENT_URL
 }));
 app.use(express.json());
 app.get('/', api.getStartPage)
