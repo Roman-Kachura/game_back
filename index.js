@@ -7,7 +7,9 @@ const WSServer = require('express-ws')(app);
 const aWss = WSServer.getWss();
 const api = require('./api');
 
-app.use(cors());
+app.use(cors({
+    origin:process.env.CLIENT_URL
+}));
 app.use(express.json());
 app.get('/', api.getStartPage)
 app.post('/users', api.addUser);
